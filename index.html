@@ -1,1 +1,20 @@
-Hello World
+<html>
+<head>
+<title>Kawal Corona</title>
+</head>
+<body>
+<div id="pesan">
+
+<script>
+var pesan = document.querySelector("#pesan");
+fetch('https://api.kawalcorona.com/indonesia')
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    pesan.innerHTML = data;
+    alert(data);
+  });
+</script>
+</body>
+</html>
