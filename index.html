@@ -8,14 +8,18 @@ Tes
 </div>
 <script>
 var pesan = document.querySelector("#pesan");
-fetch('https://api.kawalcorona.com/indonesia')
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    pesan.innerHTML = data;
-    alert(data);
-  });
+var xmlhttp = new XMLHttpRequest();
+var url = 'https://api.kawalcorona.com/indonesia';
+
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var myArr = JSON.parse(this.responseText);
+        console.log(myArr);
+    }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
 </script>
+
 </body>
 </html>
