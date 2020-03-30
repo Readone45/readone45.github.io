@@ -8,17 +8,14 @@ Tes
 </div>
 <script>
 var pesan = document.querySelector("#pesan");
-var xmlhttp = new XMLHttpRequest();
-var url = 'api.kawalcorona.com/indonesia';
-
-xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        var myArr = JSON.parse(this.responseText);
-        console.log(myArr);
-    }
-};
-xmlhttp.open("GET", url, true);
-xmlhttp.send();
+fetch('https://services5.arcgis.com/VS6HdKS0VfIhv8Ct/arcgis/rest/services/COVID19_Indonesia_per_Provinsi/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json')
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    pesan.innerHTML = data;
+    console.log(data);
+  });
 </script>
 
 </body>
