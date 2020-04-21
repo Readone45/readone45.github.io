@@ -11,7 +11,74 @@
     <title>KawalCorona!</title>
   </head>
   <body>
-    <h1 class="badge badge-primary sembuh">Memuat</h1>
+  	
+  	<nav class="navbar navbar-expand-lg navbar-light"> <a class="navbar-brand" href="#">Kawal Covid-19</a> <button style="border:none;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> <div class="collapse navbar-collapse" id="navbarNav"> <ul class="navbar-nav"> <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li> <li class="nav-item"> <a class="nav-link" href="#">Features</a> </li> <li class="nav-item"> <a class="nav-link" href="#">Pricing</a> </li> <li class="nav-item"> <a class="nav-link disabled" href="#">Disabled</a> </li> </ul> </div> </nav>
+  	
+  <div class="container">
+  	
+  	<section id="cardbg">
+  <div class="row">
+  	
+  	<div class="col-md-6 mt-3">
+  				
+     <div class="card bg-dark text-light">
+     <div class="card-body">
+     	<div class="row">
+     	<div class="col-8">
+     <h5 class="card-title">Negara</h5>
+     
+     <p class="card-text" id="country">Memuat...</p>
+     </div>
+     <div class="col-4">
+     		<img src="https://www.countryflags.io/id/flat/64.png">
+     		</div>
+     </div>
+     
+     </div>
+     
+     </div>
+  </div>
+  
+  <div class="col-md-6 mt-3">
+     <div class="card bg-success text-white">
+     <div class="card-body">
+     <h5 class="card-title">Sembuh</h5>
+     <p class="card-text" id="sembuh">Memuat...</p>
+     </div>
+     </div>
+  </div>
+  
+  <div class="col-md-6 mt-3">
+     <div class="card bg-warning">
+     <div class="card-body">
+     <h5 class="card-title">Positif</h5>
+     <p class="card-text" id="positif">Memuat...</p>
+     </div>
+     </div>
+  </div>
+  
+  <div class="col-md-6 mt-3">
+     <div class="card bg-danger text-white">
+     <div class="card-body">
+     <h5 class="card-title">Meninggal</h5>
+     <p class="card-text" id="meninggal">Memuat...</p>
+     </div>
+     </div>
+  </div>
+  
+  </div>
+  </section>
+  
+  <section class="mt-5 text-center">
+  	<span>Source : https://kawalcorona.com</span>
+  	
+  </section>
+  
+  
+  
+  
+  </div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -19,15 +86,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script>
-var sembuh = document.querySelector(".sembuh");
+var sembuh = document.querySelector("#sembuh");
+var country = document.querySelector("#country");
+
+var positif = document.querySelector("#positif");
+var meninggal = document.querySelector("#meninggal");
 fetch('https://api.kawalcorona.com/indonesia/')
   .then((response) => {
     return response.json();
   })
   .then((data) => {
+  	meninggal.innerHTML = data[0].meninggal;
+  	country.innerHTML = data[0].name;
     sembuh.innerHTML = data[0].sembuh;
+    positif.innerHTML = data[0].positif;
     console.log(data);
   });
 </script>
   </body>
 </html>
+
