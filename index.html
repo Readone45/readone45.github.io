@@ -13,8 +13,8 @@ fetch('https://api.kawalcorona.com/indonesia/')
     return response.json();
   })
   .then((data) => {
-    pesan.innerHTML = data;
-    console.log(data.sembuh);
+    pesan.innerHTML = data.sembuh;
+    console.log(data);
   });
 </script>
 
