@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Kawal Covid-19 !</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+
+  <!-- Ini Navbar --->
+  <nav class="navbar navbar-expand-lg bg-white sticky-top navbar-light" id="nav">
+    <div class="container">
+      <a class="navbar-brand" href="#">Kawal Covid-19</a>
+  <button style="border: none;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <svg fill="#0f0f0f" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px" height="30px"><path d="M 3 7 A 1.0001 1.0001 0 1 0 3 9 L 27 9 A 1.0001 1.0001 0 1 0 27 7 L 3 7 z M 3 14 A 1.0001 1.0001 0 1 0 3 16 L 14 16 A 1.0001 1.0001 0 1 0 14 14 L 3 14 z M 3 21 A 1.0001 1.0001 0 1 0 3 23 L 22 23 A 1.0001 1.0001 0 1 0 22 21 L 3 21 z"/></svg> 
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Features</a>
+      <a class="nav-item nav-link" href="#">Pricing</a>
+      <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </div>
+  </div>
+    </div>
+</nav>
+<!-- Tutup Navbar --->
+
+<section id="bgs" class="bg-white">
+  <div class="container">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item bg-white text-dark" id="listgroup">
+          Dark Theme
+          <label class="switch ">
+            <input type="checkbox" id="isdark" onchange="setdark()" class="primary">
+            <span class="slider round"></span>
+          </label>
+        </li>
+    </ul> 
+  </div>
+</section>
+
+<section id="cardbg" class="bg-white">
+    <div class="container pb-3"> 	
+        <div class="row">
+      	
+      	 <div class="col-md-6 mt-3">
+           <div class="card bg-dark text-light">
+            
+            <div class="card-body">
+             	<div class="row">
+               	<div class="col-8">
+                  <h5 class="card-title">Negara</h5>
+                  <p class="card-text" id="country">Memuat...</p>
+                </div>
+                <div class="col-4">
+               		<img src="https://www.countryflags.io/id/flat/64.png">
+               	</div>
+              </div>
+            </div>
+          
+           </div>
+        </div>
+      
+      <div class="col-md-6 mt-3">
+         <div class="card bg-success text-white">
+         <div class="card-body">
+         <h5 class="card-title">Sembuh</h5>
+         <p class="card-text" id="sembuh">Memuat...</p>
+         </div>
+         </div>
+      </div>
+      
+      <div class="col-md-6 mt-3">
+         <div class="card bg-warning">
+         <div class="card-body">
+         <h5 class="card-title">Positif</h5>
+         <p class="card-text" id="positif">Memuat...</p>
+         </div>
+         </div>
+      </div>
+      
+      <div class="col-md-6 mt-3">
+         <div class="card bg-danger text-white">
+         <div class="card-body">
+         <h5 class="card-title">Meninggal</h5>
+         <p class="card-text" id="meninggal">Memuat...</p>
+         </div>
+         </div>
+      </div>
+      
+      </div>
+      </div>
+</section>
+
+  <section class="py-5 text-center bg-white text-dark" id="foot">
+    <div class="container">
+      <span>Source : https://kawalcorona.com</span>
+    </div>
+  </section>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+    var sembuh = document.querySelector("#sembuh");
+    var country = document.querySelector("#country");
+    var positif = document.querySelector("#positif");
+    var meninggal = document.querySelector("#meninggal");
+
+    fetch('https://api.kawalcorona.com/indonesia/')
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+      	meninggal.innerHTML = data[0].meninggal;
+      	country.innerHTML = data[0].name;
+        sembuh.innerHTML = data[0].sembuh;
+        positif.innerHTML = data[0].positif;
+        console.table(data);
+      });
+    </script>
+    <script type="text/javascript">
+      var dark = document.querySelector("#isdark");
+      var nav = document.querySelector("#nav");
+      var cardbg = document.querySelector("#cardbg");
+      var bgs = document.querySelector("#bgs");
+      var listgroup = document.querySelector("#listgroup");
+      var foot = document.querySelector("#foot");
+      if(typeof(localStorage) !== "undefined"){
+        if(localStorage.getItem("theme")=="dark"){
+          darktheme();
+          dark.checked = true;
+        }else{
+          lighttheme();
+          dark.checked = false;
+        }
+      }
+
+      function darktheme(){
+          nav.classList.add("bg-dark","navbar-dark");
+          nav.classList.remove("bg-white","navbar-white");
+          cardbg.classList.add("bg-grey");
+          cardbg.classList.remove("bg-white");
+          bgs.classList.add("bg-dark");
+          bgs.classList.remove("bg-white");
+          listgroup.classList.add("bg-dark","text-white");
+          listgroup.classList.remove("bg-white","text-dark");
+          foot.classList.add("bg-dark","text-white");
+          foot.classList.remove("bg-white","text-dark");
+      }
+
+      function lighttheme(){
+          nav.classList.remove("bg-dark","navbar-dark");
+          nav.classList.add("bg-white","navbar-white");
+          cardbg.classList.remove("bg-grey");
+          cardbg.classList.add("bg-white");
+          bgs.classList.remove("bg-dark");
+          bgs.classList.add("bg-white");
+          listgroup.classList.remove("bg-dark","text-white");
+          listgroup.classList.add("bg-white","text-dark");
+          foot.classList.remove("bg-dark","text-white");
+          foot.classList.add("bg-white","text-dark");
+      }
+
+      function setdark(){
+        var isChecked = dark.checked;
+        if(isChecked){
+          localStorage.setItem("theme","dark");
+          darktheme();
+        }else{
+          localStorage.setItem("theme","light");
+          lighttheme();
+        }
+      }
+    </script>
+  </body>
+</html>
