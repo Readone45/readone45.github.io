@@ -126,6 +126,13 @@
       	country.innerHTML = data[0].name;
         sembuh.innerHTML = data[0].sembuh;
         positif.innerHTML = data[0].positif;
+      });
+      
+      fetch('https://api.kawalcorona.com/')
+      .then((response) => {
+      return response.json();
+      })
+      .then((data) => {
         console.table(data);
       });
     </script>
@@ -157,7 +164,7 @@
           bgs.classList.remove("bg-white");
           listgroup.classList.add("bg-dark","text-white");
           listgroup.classList.remove("bg-white","text-dark");
-          foot.classList.add("bg-dark","text-white");
+          foot.classList.add("bg-grey","text-white");
           foot.classList.remove("bg-white","text-dark");
       }
 
