@@ -128,13 +128,6 @@
         positif.innerHTML = data[0].positif;
       });
       
-      fetch('https://api.kawalcorona.com/')
-      .then((response) => {
-      return response.json();
-      })
-      .then((data) => {
-        console.table(data);
-      });
     </script>
     <script type="text/javascript">
       var dark = document.querySelector("#isdark");
