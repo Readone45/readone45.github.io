@@ -78,3 +78,7 @@ input:checked + .slider:before {
 .bg-grey{
   background-color: #2d2d2d;
 }
+
+.bg-blue{
+  background-color: #2196F5;
+}

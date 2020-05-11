@@ -95,6 +95,15 @@
          </div>
       </div>
       
+      <div class="col-md-6 mt-3">
+        <div class="card bg-primary text-white">
+        <div class="card-body">
+                  <h5 class="card-title">Dirawat</h5>
+                  <p class="card-text" id="dirawat">Memuat...</p>
+                </div>
+              </div>
+            </div>
+      
       </div>
       </div>
 </section>
@@ -116,6 +125,7 @@
     var country = document.querySelector("#country");
     var positif = document.querySelector("#positif");
     var meninggal = document.querySelector("#meninggal");
+    var dirawat = document.querySelector("#dirawat");
 
     fetch('https://cors-anywhere.herokuapp.com/https://api.kawalcorona.com/indonesia/')
       .then((response) => {
@@ -126,6 +136,7 @@
       	country.innerHTML = data[0].name;
         sembuh.innerHTML = data[0].sembuh;
         positif.innerHTML = data[0].positif;
+        dirawat.innerHTML = data[0].dirawat;
       });
       
     </script>
