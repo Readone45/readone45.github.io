@@ -117,7 +117,7 @@
     var positif = document.querySelector("#positif");
     var meninggal = document.querySelector("#meninggal");
 
-    fetch('https://api.kawalcorona.com/indonesia/')
+    fetch('https://cors-anywhere.herokuapp.com/https://api.kawalcorona.com/indonesia/')
       .then((response) => {
         return response.json();
       })
